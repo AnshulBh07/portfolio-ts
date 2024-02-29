@@ -1,0 +1,196 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.project_wrapper {
+  @include flexProp(row, 0rem, space-between, center);
+  height: 20rem;
+  transform: translateY(2rem);
+  opacity: 0;
+  position: relative;
+
+  &.active {
+    animation: projectAppear 0.4s ease-in forwards;
+    animation-delay: 0.4s;
+  }
+
+  .img_container {
+    width: 60%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+
+    &::before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      background-color: rgba($color: $btn-bg, $alpha: 0.5);
+      position: absolute;
+      transition: background-color 0.5s ease;
+    }
+
+    &:hover {
+      &::before {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .info {
+    @include flexProp(column, 1.5rem, flex-start, flex-end);
+    width: 40%;
+    position: relative;
+
+    .title {
+      font-family: "anta", sans-serif;
+      color: $text2;
+      font-size: 2rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $btn-bg;
+      }
+    }
+
+    .desc {
+      background-color: $desc-bg;
+      width: 120%;
+      flex-shrink: 0;
+      z-index: 3;
+      padding: 1rem 2rem;
+      font-family: "poppins", sans-serif;
+      color: $text1;
+      font-size: 0.8rem;
+      border-radius: 5px;
+      line-height: 25px;
+      word-spacing: 2px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        box-shadow: 2px 2px 10px $tag;
+      }
+
+      p {
+        text-align: right;
+      }
+    }
+
+    .tags_wrapper {
+      @include flexProp(row-reverse, 1rem, flex-start, flex-start);
+      width: 100%;
+      flex-wrap: wrap;
+
+      p {
+        font-family: "anta", sans-serif;
+        font-weight: 300;
+        color: $text2;
+        width: auto;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+      }
+    }
+
+    .redirects {
+      @include flexProp(row, 1.8rem, center, center);
+      width: auto;
+      position: absolute;
+      bottom: -3.5rem;
+
+      .github,
+      .live {
+        @include ButtonRedirect;
+      }
+    }
+  }
+}
+
+@keyframes projectAppear {
+  from {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .project_wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 23rem;
+    width: 100%;
+
+    .img_container {
+      width: 100%;
+
+      img {
+        object-fit: cover;
+      }
+
+      &::before {
+        background-color: rgba($color: $btn-hover1, $alpha: 0.7);
+      }
+    }
+
+    .info {
+      width: 100%;
+      align-items: center !important;
+      gap: 0.7rem;
+      position: absolute;
+      top: 1.5rem;
+
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .desc {
+        width: 100%;
+        background-color: transparent;
+        line-height: 21px;
+        padding: 1rem;
+
+        p {
+          text-align: left !important;
+        }
+      }
+
+      .tags_wrapper {
+        position: absolute;
+        top: 21.5rem;
+        background-color: $tag;
+        left: 0;
+        flex-direction: row !important;
+        gap: 0.6rem;
+        padding: 1rem;
+        justify-content: flex-start !important;
+        border-radius: 5px;
+        align-self: center;
+
+        p {
+          font-size: 0.8rem;
+        }
+      }
+
+      .redirects {
+        position: absolute;
+        bottom: 0;
+        top: 19rem;
+        padding: 0 1rem;
+      }
+    }
+  }
+}

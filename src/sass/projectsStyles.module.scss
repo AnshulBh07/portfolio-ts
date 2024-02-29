@@ -1,0 +1,88 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(column, 1.5rem, flex-start, center);
+  padding: 5rem 15rem;
+  padding-bottom: 8rem;
+  background-color: $bg;
+  min-height: fit-content;
+
+  .title {
+    font-family: "poppins", sans-serif;
+    color: $text1;
+    font-size: 3rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transform: translateY(-1rem);
+    opacity: 0;
+
+    &.active {
+      animation: titleAppear 0.4s ease-in forwards;
+      animation-delay: 0.4s;
+    }
+  }
+
+  .vert_line {
+    height: 3.5rem;
+    width: 0.2rem;
+    background-color: $btn-bg;
+    position: relative;
+    opacity: 0;
+
+    &.active {
+      animation: lineAppear 0.5s ease-in forwards;
+    }
+
+    span {
+      color: $btn-bg;
+      font-size: 1rem;
+      position: absolute;
+      bottom: -60%;
+      left: -100%;
+      background-color: transparent;
+      font-family: "poppins", sans-serif;
+      font-size: 3rem;
+    }
+  }
+
+  .projects {
+    @include flexProp(column, 9rem, flex-start, center);
+    margin-top: 3rem;
+  }
+}
+
+@keyframes titleAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lineAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container {
+    padding: 2rem 2rem;
+
+    .title {
+      font-size: 2rem;
+    }
+
+    .projects {
+      margin-top: 1rem;
+    }
+  }
+}

@@ -1,0 +1,112 @@
+@import "../sass/variables.scss";
+
+@mixin flexProp($direction, $gap, $justification, $alignment) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+  width: 100%;
+  align-items: $alignment;
+  flex-wrap: nowrap;
+  justify-content: $justification;
+}
+
+@mixin ButtonOrange {
+  font-family: "rubik", sans-serif;
+  font-size: 1.2rem;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  background-color: $btn-bg;
+  color: $text1;
+  letter-spacing: 1px;
+  border: 2px solid $btn-bg;
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  &:hover {
+    border: 2px solid $btn-hover2;
+    transform: translateY(-0.5rem);
+    box-shadow: 0px 5px 20px rgb(18, 18, 18);
+  }
+}
+
+@mixin ButtonWhite {
+  font-family: "rubik", sans-serif;
+  font-size: 1.2rem;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  background-color: transparent;
+  color: $text1;
+  letter-spacing: 1px;
+  border: 2px solid $btn-bg;
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  &:hover {
+    border: 2px solid $btn-hover2;
+    transform: translateY(-0.5rem);
+    box-shadow: 0px 5px 20px rgb(18, 18, 18);
+  }
+}
+
+@mixin ButtonRedirect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 1.7rem;
+  width: 1.7rem;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease;
+  position: relative;
+
+  .icon {
+    height: 90%;
+    width: 90%;
+    color: $text2;
+    transition: all 0.3s ease;
+  }
+
+  span {
+    font-family: "rubik", sans-serif;
+    font-weight: 400;
+    color: $bg;
+    text-transform: capitalize;
+    width: auto;
+    font-size: 0.7rem;
+    background-color: $text2;
+    padding: 0.4rem 0.8rem;
+    position: absolute;
+    bottom: -130%;
+    left: -5%;
+    white-space: nowrap;
+    border-radius: 3px;
+    visibility: hidden;
+  }
+
+  &:hover {
+    .icon {
+      color: $btn-bg;
+      animation: hoverAnimation 3s ease-in-out infinite;
+    }
+
+    span {
+      visibility: visible;
+    }
+  }
+}
+
+@keyframes hoverAnimation {
+  0% {
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}

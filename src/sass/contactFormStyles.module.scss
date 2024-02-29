@@ -1,0 +1,125 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.container_form {
+  @include flexProp(column, 1.5rem, flex-start, flex-start);
+  width: 40%;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateX(100%);
+
+  &.active {
+    animation: slideLeft 0.4s ease forwards;
+    animation-delay: 0.4s;
+  }
+
+  .input_wrapper {
+    @include flexProp(column, 0.4rem, flex-start, flex-start);
+    font-family: "rubik", sans-serif;
+    color: $text3;
+    text-transform: capitalize;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    input[type="text"] {
+      width: 100%;
+      font-size: 1rem;
+      font-family: "poppins", sans-serif;
+      font-weight: 600;
+      padding: 0 0.6rem;
+      padding-top: 0.3rem;
+      background-color: transparent;
+      border: none;
+      font-size: 1.1rem;
+      color: $text2;
+      letter-spacing: 1px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .bar {
+      @include flexProp(row, 0rem, center, center);
+      height: 0.1rem;
+      background-color: $text3;
+
+      span {
+        width: 0;
+        height: 100%;
+        background-color: $btn-bg;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      font-family: "poppins", sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0 0.6rem;
+      padding-top: 0.3rem;
+      background-color: transparent;
+      border: none;
+      color: $text2;
+      letter-spacing: 1px;
+      resize: none;
+
+      overflow: auto;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  .submitBtn {
+    @include ButtonOrange;
+    align-self: flex-end;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+    filter: blur(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+@keyframes formAppear {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container_form {
+    width: 100%;
+
+    opacity: 0;
+    transform: translateY(1rem);
+    filter: blur(10px);
+
+    &.active {
+      animation: formAppear 0.4s ease forwards;
+      animation-delay: 1s;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(column, 1.5rem, flex-start, center);
+  padding: 2rem 8rem;
+  background-color: $tag;
+
+  .name {
+    font-family: "poppins", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: $text2;
+    letter-spacing: 1px;
+  }
+
+  .copyright {
+    font-family: "rubik", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: $text3;
+  }
+
+  .icons_wrapper {
+    @include flexProp(row, 2rem, center, center);
+
+    .contactBtn {
+      height: 3rem;
+      width: 3rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 50%;
+      background-color: $text3;
+      position: relative;
+
+      .icon {
+        height: 55%;
+        width: 55%;
+        color: $bg;
+      }
+
+      .git_icon {
+        height: 90%;
+        width: 90%;
+        color: $bg;
+        position: absolute;
+        bottom: -0.2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container {
+    padding: 2rem 2rem;
+    gap: 1rem;
+
+    .name {
+      font-size: 1rem;
+    }
+
+    .copyright {
+      font-size: 0.7rem;
+    }
+
+    .icons_wrapper {
+      margin-top: 2rem;
+    }
+  }
+}

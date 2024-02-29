@@ -1,0 +1,104 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(row, 0rem, space-between, center);
+  padding: 2.5rem 8rem;
+  background-color: $bg;
+  color: $text1;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: $bg, $alpha: 0.95);
+  backdrop-filter: blur(15px);
+  transition: all 0.2s ease;
+
+  &.show {
+    transform: translateY(0);
+  }
+
+  &.hide {
+    transform: translateY(-100%);
+  }
+
+  .name {
+    font-family: "anta", sans-serif;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: logoAppear 0.2s ease-in forwards;
+    animation-delay: 0.8s;
+  }
+
+  .navbar {
+    @include flexProp(row, 3.5rem, center, center);
+    width: auto;
+    list-style-type: none;
+
+    li {
+      .navBtn {
+        text-decoration: none;
+        font-family: "rubik", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        color: $text1;
+        text-transform: capitalize;
+        position: relative;
+        letter-spacing: 2px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transform: translateY(-1rem);
+        opacity: 0;
+        animation: navItemsAppear 0.3s ease-in forwards;
+
+        &::before {
+          content: "";
+          background-color: $text1;
+          border: 1px solid $btn-bg;
+          width: 100%;
+          position: absolute;
+          bottom: -40%;
+          width: 0rem;
+          visibility: hidden;
+          transition: all 0.3s ease;
+        }
+
+        &:hover {
+          &::before {
+            width: 100%;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes navItemsAppear {
+  from {
+    transform: translateY(-1rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes logoAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container {
+    display: none;
+  }
+}
