@@ -111,7 +111,10 @@ export const Contact: React.FC = () => {
             {socialMediaItems.map((item, index) => {
               return (
                 <li key={index}>
-                  <button className={styles.socialBtn}>
+                  <button
+                    className={styles.socialBtn}
+                    onClick={() => window.open(item.link, "_blank")}
+                  >
                     {item.icon} <span>{item.hoverText}</span>
                   </button>
                 </li>

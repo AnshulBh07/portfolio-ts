@@ -4,15 +4,14 @@
 .container {
   @include flexProp(row, 0rem, space-between, center);
   padding: 2.5rem 8rem;
-  background-color: $bg;
   color: $text1;
-  position: fixed;
   z-index: 5;
   top: 0;
   left: 0;
   background-color: rgba($color: $bg, $alpha: 0.95);
   backdrop-filter: blur(15px);
   transition: all 0.2s ease;
+  position: fixed;
 
   &.show {
     transform: translateY(0);
@@ -32,45 +31,54 @@
     animation-delay: 0.8s;
   }
 
-  .navbar {
-    @include flexProp(row, 3.5rem, center, center);
-    width: auto;
-    list-style-type: none;
+  .navWrapper {
+    position: relative;
 
-    li {
-      .navBtn {
-        text-decoration: none;
-        font-family: "rubik", sans-serif;
-        font-weight: 400;
-        font-size: 1rem;
-        color: $text1;
-        text-transform: capitalize;
-        position: relative;
-        letter-spacing: 2px;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        transform: translateY(-1rem);
-        opacity: 0;
-        animation: navItemsAppear 0.3s ease-in forwards;
+    .navbar {
+      @include flexProp(row, 3.5rem, center, center);
+      width: auto;
+      list-style-type: none;
 
-        &::before {
-          content: "";
-          background-color: $text1;
-          border: 1px solid $btn-bg;
-          width: 100%;
-          position: absolute;
-          bottom: -40%;
-          width: 0rem;
-          visibility: hidden;
-          transition: all 0.3s ease;
+      li {
+        .navBtn {
+          text-decoration: none;
+          font-family: "rubik", sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+          color: $text1;
+          text-transform: capitalize;
+          position: relative;
+          letter-spacing: 2px;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          transform: translateY(-1rem);
+          opacity: 0;
+          animation: navItemsAppear 0.3s ease-in forwards;
+
+          &::before {
+            content: "";
+            background-color: $text1;
+            border: 1px solid $btn-bg;
+            width: 100%;
+            position: absolute;
+            bottom: -40%;
+            width: 0rem;
+            visibility: hidden;
+            transition: all 0.3s ease;
+          }
+
+          &:hover {
+            &::before {
+              width: 100%;
+              visibility: visible;
+            }
+          }
         }
 
-        &:hover {
-          &::before {
-            width: 100%;
-            visibility: visible;
-          }
+        .resumeBtn {
+          @include ButtonWhite;
+          display: none;
         }
       }
     }
@@ -99,6 +107,90 @@
 
 @media screen and (max-width: 360px) {
   .container {
+    padding: 1rem 2rem;
+    position: fixed;
+
+    .name {
+      font-size: 1rem;
+      animation-delay: 1.6s;
+    }
+
+    .navWrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      background-color: transparent;
+      @include flexProp(row, 0rem, flex-end, center);
+      width: 100%;
+      z-index: 3;
+      backdrop-filter: blur(0);
+
+      &.open {
+        backdrop-filter: blur(20px);
+      }
+
+      &.close {
+        animation: navWrapperClose 0.4s ease forwards;
+        animation-delay: 0.6s;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 4rem;
+        height: 100%;
+        width: 80%;
+        background-color: $tag;
+        transform: translateX(100%);
+
+        &.open {
+          animation: navAppear 0.3s ease forwards;
+        }
+
+        &.close {
+          animation: navDisappear 0.3s ease forwards;
+        }
+
+        li {
+          .navBtn {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: $text3;
+          }
+
+          .resumeBtn {
+            @include ButtonWhite;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes navAppear {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes navDisappear {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes navWrapperClose {
+  0% {
+    display: flex;
+  }
+  100% {
     display: none;
   }
 }

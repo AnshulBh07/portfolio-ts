@@ -37,7 +37,17 @@ export const Home: React.FC = () => {
             >
               contact me
             </button>
-            <button className={styles.resumeBtn}>resume</button>
+            <button
+              className={styles.resumeBtn}
+              onClick={() =>
+                window.open(
+                  "https://drive.google.com/file/d/1AINL-N5azKQe111n_1rgr-p5vSJ2hD_C/view?usp=sharing",
+                  "_blank"
+                )
+              }
+            >
+              resume
+            </button>
           </div>
         </div>
 

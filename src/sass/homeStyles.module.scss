@@ -150,7 +150,7 @@
       padding: 1.5rem 2rem;
       overflow: auto;
       flex-shrink: 0;
-      animation: slideLeft 25s linear infinite;
+      // animation: slideLeft 25s linear infinite;
       background-color: $tag;
       color: $tag-text;
       border: none;
@@ -315,6 +315,7 @@
         @include flexProp(row, 3rem, center, center);
         width: auto;
         padding: 1.5rem 1.5rem;
+        animation: slideLeft 25s linear infinite;
       }
     }
   }

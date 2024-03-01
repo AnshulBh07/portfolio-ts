@@ -35,3 +35,8 @@ export interface IScroll {
   projects: number;
   contact: number;
 }
+
+export interface INavState {
+  sticky: boolean;
+  hamClick: "open" | "close" | "";
+}

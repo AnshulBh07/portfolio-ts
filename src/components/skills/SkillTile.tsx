@@ -17,7 +17,7 @@ export const SkillTile: React.FC<IProps> = ({ data, index }) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setAnimate(true);
-        } else setAnimate(false);
+        }
       });
     });
 
