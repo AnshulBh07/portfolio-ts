@@ -95,7 +95,7 @@
 @keyframes slideRight {
   from {
     transform: translateX(-100%);
-    filter: blur(10px);
+    filter: blur(20px);
     opacity: 0;
   }
   to {
@@ -182,11 +182,7 @@
 
         .social_media_wrapper {
           justify-content: center;
-
-          .socialBtn {
-            height: 5rem;
-            width: 5rem;
-          }
+          gap: 2rem;
         }
       }
     }

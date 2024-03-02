@@ -1,0 +1,42 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  @include flexProp(row, 0rem, center, center);
+
+  .path1 {
+    stroke: #633c3a;
+    fill: none;
+    stroke-width: 4;
+    filter: blur(2px);
+  }
+
+  .path2 {
+    stroke: #cf6251;
+    fill: none;
+    stroke-width: 4;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 300;
+    stroke-linecap: round;
+    filter: blur(10px);
+  }
+
+  .path3 {
+    fill: none;
+    stroke: #ff715b;
+    stroke-width: 4;
+    stroke-dasharray: 700;
+    stroke-dashoffset: 800;
+    stroke-linecap: round;
+    filter: blur(1px);
+  }
+
+  .path4 {
+    fill: none;
+    stroke: #ab4f41;
+    stroke-width: 4;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 800;
+    stroke-linecap: round;
+  }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../../sass/homeStyles.module.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
+import { Brackets } from "../preloader/Brackets";
 
 export const Home: React.FC = () => {
   const skillsList = [
@@ -56,6 +57,14 @@ export const Home: React.FC = () => {
             <div className={styles.outer_ring}>
               <div className={styles.inner_ring}></div>
             </div>
+          </div>
+
+          <div className={styles.bracket1}>
+            <Brackets />
+          </div>
+
+          <div className={styles.bracket2}>
+            <Brackets />
           </div>
         </div>
       </div>

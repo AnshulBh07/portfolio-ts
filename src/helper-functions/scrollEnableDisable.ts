@@ -1,8 +1,8 @@
 // contains functions that lock and unlock the scroll
 export const disableScroll = () => {
-  document.body.style.overflow = "hidden";
+  document.body.style.overflowY = "hidden";
 };
 
 export const enableScroll = () => {
-  document.body.style.overflow = "scroll";
+  document.body.style.overflowY = "scroll";
 };

@@ -6,11 +6,11 @@
   width: 40%;
   opacity: 0;
   filter: blur(10px);
-  transform: translateX(100%);
+  transform: translateX(-2rem);
 
   &.active {
-    animation: slideLeft 0.4s ease forwards;
-    animation-delay: 0.4s;
+    animation: slideRight 0.4s ease forwards;
+    animation-delay: 0.7s;
   }
 
   .input_wrapper {
@@ -83,9 +83,22 @@
   }
 }
 
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+    filter: blur(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
 @keyframes slideLeft {
   from {
-    transform: translateX(100%);
+    transform: translateX(-2rem);
     filter: blur(10px);
     opacity: 0;
   }

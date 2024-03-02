@@ -105,6 +105,9 @@
       width: 50%;
       height: 100%;
       position: relative;
+      opacity: 0;
+      animation: nameAppear 1s ease forwards;
+      animation-delay: 0.3s;
 
       .ring_wrapper {
         @include flexProp(row, 0rem, center, flex-end);
@@ -134,6 +137,26 @@
             box-shadow: inset 8px 2px 20px #412725;
           }
         }
+      }
+
+      .bracket1 {
+        position: absolute;
+        top: 15%;
+        left: -9%;
+        transform-origin: center;
+        transform: scale(0.4);
+        animation: hoverBracket 5s ease-in-out infinite;
+      }
+
+      .bracket2 {
+        position: absolute;
+        transform-origin: center;
+        transform: scale(0.4);
+        rotate: 0 0 1 180deg;
+        right: -8%;
+        bottom: -10%;
+        animation: hoverBracket 5s ease-in-out infinite;
+        animation-delay: 0.5s;
       }
     }
   }
@@ -206,6 +229,21 @@
   }
   to {
     width: 30%;
+  }
+}
+
+@keyframes hoverBracket {
+  0% {
+    transform: scale(0.4) translateY(0rem);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.4) translateY(-1.5rem);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.4) translateY(0rem);
+    opacity: 1;
   }
 }
 
@@ -302,6 +340,14 @@
               width: 16rem;
             }
           }
+        }
+
+        .bracket1 {
+          display: none;
+        }
+
+        .bracket2 {
+          display: none;
         }
       }
     }
