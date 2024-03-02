@@ -1,0 +1,82 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.container {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #0d161c;
+  @include flexProp(row, 0rem, center, center);
+
+  .svg_container {
+    // border: 5px solid blue;
+    opacity: 1;
+    transform: rotateY(180deg) rotateZ(-90deg);
+    // animation: disappear 0.4s ease forwards;
+    // animation-delay: 1.8s;
+
+    .circle1 {
+      transform-origin: center;
+      fill: transparent;
+      stroke: #ff9281;
+      stroke-width: 12;
+      stroke-dasharray: 630;
+      stroke-dashoffset: 630;
+      filter: blur(20px);
+      opacity: 1;
+      animation: progress1 2s ease forwards, disappear 3.5s ease forwards;
+    }
+
+    .circle2 {
+      fill: transparent;
+      stroke: #ff7c68;
+      stroke-width: 7;
+      stroke-linecap: round;
+      stroke-dasharray: 630;
+      stroke-dashoffset: 630;
+      animation: progress1 2s ease forwards, disappear 3.5s ease forwards;
+    }
+
+    .circle3 {
+      transform-origin: center;
+      transform: scale(0);
+      fill: transparent;
+      stroke: #ff7c68;
+      stroke-width: 5;
+      opacity: 1;
+      animation: ringExpand 0.5s ease forwards, disappear 3.5s ease forwards;
+      animation-delay: 2s;
+    }
+
+    .circle4 {
+      transform-origin: center;
+      transform: scale(0);
+      fill: transparent;
+      stroke: #ff7c68;
+      stroke-width: 5;
+      opacity: 1;
+      animation: ringExpand 0.5s ease forwards, disappear 3.5s ease forwards;
+      animation-delay: 2.3s;
+    }
+  }
+}
+
+@keyframes progress1 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes disappear {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes ringExpand {
+  to {
+    transform: scale(1);
+    stroke-width: 8;
+  }
+}
