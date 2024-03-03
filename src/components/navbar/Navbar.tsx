@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
         enableScroll();
         break;
       case "contact":
-        window.scrollTo({ top: contact, left: 0, behavior: "smooth" });
+        window.scrollTo({ top: contact + 100, left: 0, behavior: "smooth" });
         setHamClick("close");
         enableScroll();
         break;
