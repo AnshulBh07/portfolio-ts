@@ -1,0 +1,150 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.container {
+  @include flexProp(column, 0rem, space-between, center);
+  width: 28rem;
+  height: 7rem;
+  background-color: $tag;
+  position: absolute;
+  left: 3rem;
+  box-shadow: 10px 10px 15px #0c1319;
+  transform: translateX(-35rem);
+
+  &.open {
+    animation: slideRight 0.6s ease forwards;
+  }
+
+  &.close {
+    animation: slideLeft 0.6s ease forwards;
+  }
+
+  .top {
+    @include flexProp(row, 0rem, flex-start, center);
+    height: 96%;
+    position: relative;
+
+    .icon_wrapper {
+      @include flexProp(row, 0rem, center, center);
+      height: 100%;
+      width: 23%;
+      background-image: linear-gradient(to right, $tag, #0f1920);
+
+      .status_icon {
+        height: 55%;
+        width: 55%;
+        // color: rgb(32, 187, 32);
+      }
+    }
+
+    .info {
+      @include flexProp(column, 0.6rem, flex-start, flex-start);
+      width: 73%;
+      height: 100%;
+      padding: 1rem;
+      font-family: "poppins", sans-serif;
+      color: $text3;
+
+      h2 {
+        text-align: left;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 0.8rem;
+      }
+    }
+
+    .closeBtn {
+      height: 2.5rem;
+      width: 2rem;
+      position: absolute;
+      right: 0.5rem;
+      top: 0.3rem;
+      display: grid;
+      place-items: center;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+      .close_icon {
+        height: 90%;
+        width: 90%;
+        color: $text3;
+      }
+    }
+  }
+
+  .bottom {
+    @include flexProp(row, 0rem, flex-start, center);
+    height: 4%;
+    position: relative;
+
+    .bar1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      height: 0.2rem;
+      width: 0;
+      // background-image: linear-gradient(rgb(4, 142, 4), rgb(72, 255, 72));
+      filter: blur(5px);
+      animation-delay: 0.5s;
+    }
+
+    .bar2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      height: 0.2rem;
+      width: 0;
+      // background-image: linear-gradient(rgb(4, 142, 4), rgb(72, 255, 72));
+      animation-delay: 0.5s;
+    }
+
+    &.active {
+      .bar1 {
+        animation: progress 5s ease forwards;
+      }
+
+      .bar2 {
+        animation: progress 5s ease forwards;
+      }
+    }
+  }
+}
+
+@keyframes progress {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-35rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(0rem);
+  }
+  to {
+    transform: translateX(-35rem);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .container {
+    scale: 0.75;
+    left: -12%;
+    bottom: -560%;
+  }
+}

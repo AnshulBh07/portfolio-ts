@@ -40,7 +40,7 @@
     }
 
     .bar {
-      @include flexProp(row, 0rem, center, center);
+      @include flexProp(row, 0rem, flex-start, center);
       height: 0.1rem;
       background-color: $text3;
 

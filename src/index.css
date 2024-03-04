@@ -2,6 +2,17 @@ html body {
   overflow-x: hidden;
 }
 
-html body::-webkit-scrollbar {
-  display: none;
+body::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #121f28;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ff715b;
+  width: 0.2em;
+  border: 2px solid #121f28;
+  border-radius: 10px;
 }

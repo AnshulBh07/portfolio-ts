@@ -19,6 +19,8 @@ export const contactFormReducer = (
       return { ...state, email: action.payload! };
     case "contactForm/setMessage":
       return { ...state, message: action.payload! };
+    case "contactForm/clear":
+      return initialState;
     default:
       return state;
   }

@@ -40,3 +40,9 @@ export interface INavState {
   sticky: boolean;
   hamClick: "open" | "close" | "";
 }
+
+export interface IToast {
+  status: "success" | "error" | "warning";
+  activity: "open" | "close" | "";
+  message: string;
+}

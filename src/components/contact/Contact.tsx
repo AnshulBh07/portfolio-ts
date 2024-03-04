@@ -9,6 +9,7 @@ import { SiLeetcode } from "react-icons/si";
 import { ContactForm } from "./ContactForm";
 import { AppDispatch } from "../../store";
 import { useDispatch } from "react-redux";
+import { Toast } from "../toast/Toast";
 
 export const Contact: React.FC = () => {
   const arr: IContactItem[] = [
@@ -122,6 +123,7 @@ export const Contact: React.FC = () => {
             })}
           </ul>
         </div>
+        <Toast />
 
         {/* container contact form */}
         <ContactForm animate={animate} />
