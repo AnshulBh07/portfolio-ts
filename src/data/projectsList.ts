@@ -39,8 +39,8 @@ export const projectsList: projectItem[] = [
     ],
     description:
       "A social media dashboard that displays analytics for a single profile. Uses Chart.js v2 to map data to beautiful charts. Provides additional functionality of drafting and scheduling social media posts, while also displaying all the posts from a user. Supports usr authentication",
-    gitLink: "",
-    liveLink: "",
+    gitLink: "https://github.com/AnshulBh07/dashboard-frontend",
+    liveLink: "https://swayspace-social-app.netlify.app/posts",
     imageLink: Dashboard,
   },
   {
@@ -59,8 +59,8 @@ export const projectsList: projectItem[] = [
     ],
     description:
       "Welcome to Bistro Bliss, where culinary excellence meets the joy of dining! This food app is designed to take you on a gastronomic adventure, offering a delightful array of dishes that cater to every palate. This app simulates a tailor made website for a restaurant that offers a wide range of food.",
-    gitLink: "",
-    liveLink: "",
+    gitLink: "https://github.com/AnshulBh07/Bistro-Bliss",
+    liveLink: "https://anshuls-bistro-bliss-app.netlify.app/",
     imageLink: BistroBliss,
   },
   {
