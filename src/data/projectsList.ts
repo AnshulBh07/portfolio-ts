@@ -40,7 +40,7 @@ export const projectsList: projectItem[] = [
     description:
       "A social media dashboard that displays analytics for a single profile. Uses Chart.js v2 to map data to beautiful charts. Provides additional functionality of drafting and scheduling social media posts, while also displaying all the posts from a user. Supports usr authentication",
     gitLink: "https://github.com/AnshulBh07/dashboard-frontend",
-    liveLink: "https://swayspace-social-app.netlify.app/posts",
+    liveLink: "https://swayspace-social-app.netlify.app",
     imageLink: Dashboard,
   },
   {
