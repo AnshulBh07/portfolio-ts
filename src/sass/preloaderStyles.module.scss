@@ -20,7 +20,7 @@
     .circle1 {
       transform-origin: center;
       fill: transparent;
-      stroke: #ff9281;
+      stroke: #ff642b;
       stroke-width: 12;
       stroke-dasharray: 630;
       stroke-dashoffset: 630;
@@ -31,7 +31,7 @@
 
     .circle2 {
       fill: transparent;
-      stroke: #ff7c68;
+      stroke: #ff642b;
       stroke-width: 7;
       stroke-linecap: round;
       stroke-dasharray: 630;
@@ -43,7 +43,7 @@
       transform-origin: center;
       transform: scale(0);
       fill: transparent;
-      stroke: #ff7c68;
+      stroke: #ff642b;
       stroke-width: 5;
       opacity: 1;
       animation: ringExpand 0.5s ease forwards, disappear 3.5s ease forwards;
