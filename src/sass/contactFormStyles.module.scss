@@ -78,6 +78,8 @@
   }
 
   .submitBtn {
+    @include flexProp(row, 0.6rem, center, center);
+    width: auto;
     @include ButtonOrange;
     align-self: flex-end;
   }

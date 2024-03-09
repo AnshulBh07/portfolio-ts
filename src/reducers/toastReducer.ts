@@ -18,7 +18,10 @@ export const toastReducer = (state = initialState, action: actionType) => {
         message: action.payload!.message,
       };
     case "toast/close":
-      return { ...state, activity: action.payload!.activity };
+      return {
+        ...state,
+        activity: action.payload!.activity,
+      };
     default:
       return state;
   }

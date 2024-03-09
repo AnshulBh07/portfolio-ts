@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { IToast } from "../../data/interfaces";
 import { validateForm } from "../../helper-functions/formValidation";
+import { Loader } from "../preloader/Loader";
 
 interface IProps {
   animate: boolean;
@@ -14,6 +15,7 @@ interface IProps {
 export const ContactForm: React.FC<IProps> = ({ animate }) => {
   const dispatch: AppDispatch = useDispatch();
   const [focus, setFocus] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const contactState = useSelector((state: RootState) => state.contact);
 
@@ -25,6 +27,7 @@ export const ContactForm: React.FC<IProps> = ({ animate }) => {
     // clear any prev timers
     clearTimeout(timerId);
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       // check validity of form inputs (mainly email, and empty inputs)
@@ -48,6 +51,7 @@ export const ContactForm: React.FC<IProps> = ({ animate }) => {
               toastData.activity = "close";
               dispatch({ type: "toast/close", payload: toastData });
             }, 5000);
+            setIsLoading(false);
             return;
 
           case 1:
@@ -59,6 +63,7 @@ export const ContactForm: React.FC<IProps> = ({ animate }) => {
               toastData.activity = "close";
               dispatch({ type: "toast/close", payload: toastData });
             }, 5000);
+            setIsLoading(false);
             return;
 
           case 2:
@@ -70,6 +75,7 @@ export const ContactForm: React.FC<IProps> = ({ animate }) => {
               toastData.activity = "close";
               dispatch({ type: "toast/close", payload: toastData });
             }, 5000);
+            setIsLoading(false);
             return;
 
           default:
@@ -97,6 +103,7 @@ export const ContactForm: React.FC<IProps> = ({ animate }) => {
             toastData.activity = "close";
             dispatch({ type: "toast/close", payload: toastData });
           }, 5000);
+          setIsLoading(false);
           break;
         default:
           toastData.activity = "open";
@@ -107,6 +114,7 @@ export const ContactForm: React.FC<IProps> = ({ animate }) => {
             toastData.activity = "close";
             dispatch({ type: "toast/close", payload: toastData });
           }, 5000);
+          setIsLoading(false);
           break;
       }
 
@@ -178,6 +186,7 @@ export const ContactForm: React.FC<IProps> = ({ animate }) => {
       </label>
 
       <button className={styles.submitBtn} onClick={handleFormSubmit}>
+        {isLoading && <Loader />}
         submit
       </button>
     </form>
