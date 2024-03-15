@@ -42,7 +42,7 @@ export const Home: React.FC = () => {
               className={styles.resumeBtn}
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1AINL-N5azKQe111n_1rgr-p5vSJ2hD_C/view?usp=sharing",
+                  "https://drive.google.com/file/d/1hDUK1MhNZ7erQEJ0vykX_5VbNPpXftsQ/view?usp=drive_link",
                   "_blank"
                 )
               }
